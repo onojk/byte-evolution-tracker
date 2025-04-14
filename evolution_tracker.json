@@ -1,0 +1,8 @@
+{
+  "0x0000": {
+    "fails": ["0x01", "0x05", ..., "0x0A"],
+    "finalist": "0x0C",
+    "confirmed": false
+  },
+  ...
+}
