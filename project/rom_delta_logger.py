@@ -33,7 +33,20 @@ if __name__ == "__main__":
 
     # Auto-generate output filename
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_filename = f"delta_log_latest.txt"
+import os
+from datetime import datetime
+
+# Make sure the output directory exists
+output_dir = os.path.expanduser("~/delta_logs")
+os.makedirs(output_dir, exist_ok=True)
+
+# Auto-timestamped filename
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+output_path = os.path.join(output_dir, f"delta_log_{timestamp}.txt")
+
+# Write to that file instead
+with open(output_path, "w") as f:
+    ...
 
     with open(log_filename, "w") as f:
         f.write(f"Delta Sum: {delta_sum}\n")
